@@ -53,7 +53,7 @@ class ProfileCard extends StatelessWidget {
                       ),
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.all(8.0),
