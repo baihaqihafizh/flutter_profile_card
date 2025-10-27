@@ -3,11 +3,11 @@ import 'package:flutter_application_1/aboutme.dart';
 import 'package:flutter_application_1/profile.dart';
 
 void main() {
-  runApp(AboutMe());
+  runApp(HomePage());
 }
 
-class AboutMe extends StatelessWidget {
-  const AboutMe ({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
