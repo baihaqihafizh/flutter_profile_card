@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
 
-  final List<String> badgeList = const <String>[
-    '👁️',
-    '😒',
-    '⚠️',
-    '📖',
-    '👍',
-    '📸',
-    '⚡',
-    '🔥',
-    '😁',
-    '😘',
+  final List<String> imageList = const <String>[
+    'https://images.unsplash.com/photo-1761405378558-3688471ba000?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1064',
+    'https://images.unsplash.com/photo-1761576882205-ac0ec9df45c2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1045',
+    'https://images.unsplash.com/photo-1761562964790-77f9f5ac45b9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987',
+    'https://images.unsplash.com/photo-1761322053661-b2981f5a0e88?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987',
+    'https://images.unsplash.com/photo-1761330461729-6e5aacbf11b8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1006',
+    'https://plus.unsplash.com/premium_photo-1761331960515-bd6f42eb8c3d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=964',
+    'https://images.unsplash.com/photo-1761512169411-523f89a7762a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1035',
+    'https://plus.unsplash.com/premium_photo-1760482557508-398a23d01dfe?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=991',
+    'https://images.unsplash.com/photo-1760915170483-3e943d42f29a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987',
+    'https://images.unsplash.com/photo-1761199664578-7d2f9e1edc0a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987',
   ];
 
   @override
@@ -338,21 +338,35 @@ class AboutMe extends StatelessWidget {
                   height: 110,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    children: badgeList.map((Element) {
+                    children: imageList.map((Url) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          padding: const EdgeInsets.all(10.0),
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.redAccent,
-                            borderRadius: BorderRadius.circular(20),
+                          width: 150,
+                          height: 150,
+                          child: CircleAvatar(
+                            radius: 10,
+                            backgroundImage: NetworkImage('${Url}'),
                           ),
-                          child: Center(child: Text('${Element}', style: TextStyle(fontSize: 60),)),
                         ),
                       );
                     }).toList(),
+                  ),
+                ),
+                SizedBox(
+                  height: 110,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: imageList.length,
+                    itemBuilder: (BuildContext, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage('${imageList[index]}'),
+                          radius: 100,
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],
